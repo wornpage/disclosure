@@ -70,8 +70,10 @@
     touch-action: manipulation;
   }
 
-  .worn-collapsible-trigger:hover {
-    background: var(--cockpit-hover-bg);
+  @media (hover: hover) and (pointer: fine) {
+    .worn-collapsible-trigger:hover {
+      background: var(--cockpit-hover-bg);
+    }
   }
 
   .worn-collapsible-trigger:focus-visible {

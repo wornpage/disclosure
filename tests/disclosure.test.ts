@@ -32,6 +32,12 @@ describe('semantic disclosure contract', () => {
 });
 
 describe('compact and motion behavior', () => {
+  test('limits trigger hover feedback to fine hover-capable pointers', () => {
+    expect(collapsible).toContain('@media (hover: hover) and (pointer: fine)');
+    expect(collapsible).toContain('.worn-collapsible-trigger:hover {');
+    expect(collapsible).toContain('background: var(--cockpit-hover-bg);');
+  });
+
   test('contains hostile labels and owns the complete trigger target', () => {
     for (const source of [accordion, collapsible]) {
       expect(source).toContain('max-inline-size: 100%;');
