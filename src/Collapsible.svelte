@@ -77,7 +77,7 @@
   }
 
   .worn-collapsible-trigger:focus-visible {
-    outline: 2px dashed var(--cockpit-accent);
+    outline: 2px dashed var(--worn-disclosure-focus, var(--cockpit-focus, var(--cockpit-accent, currentColor)));
     outline-offset: -2px;
   }
 
