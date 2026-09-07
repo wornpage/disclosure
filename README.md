@@ -1,89 +1,14 @@
-# @wornpage/disclosure
+# Wornpage disclosure — historical repository
 
-> Part of **[Wornpage Components](https://github.com/wornpage/wornpage#component-library)**.
-> [Browse the catalog](https://wornpage.pages.dev) · [Setup guide](https://github.com/wornpage/wornpage/blob/main/docs/getting-started.md) · [Wornpage overview](https://github.com/wornpage/wornpage)
+Active source, documentation, and releases now live in
+[`wornpage/wornpage/packages/disclosure`](https://github.com/wornpage/wornpage/tree/main/packages/disclosure).
 
-Native Svelte 5 accordion and collapsible controls for the Wornpage design system.
+[Browse Components](https://wornpage-components.pages.dev) · [Installation guide](https://github.com/wornpage/wornpage/blob/main/docs/getting-started.md) · [Releases](https://github.com/wornpage/wornpage/releases)
 
-<!-- wornpage-delivery:v2 browser-bundle -->
-## Delivery
+This repository stays public to preserve exact commit archive URLs used by existing Projects and Afterlist editions. Existing branches, tags, and source history are retained.
 
-`src/` is the canonical implementation and the Svelte consumer entry. `dist/` is a generated browser bundle; run `bun run build` after source changes and never edit `dist/` directly.
+New issues, pull requests, and component changes belong in the canonical repository. The standalone release workflow has been retired.
 
-Repository text is checked out as LF through `.gitattributes`, so generated output is byte-stable across Windows and Linux.
+See the [migration record](https://github.com/wornpage/wornpage/blob/main/docs/component-migration.md) for source ownership and compatibility requirements.
 
-The shared [component delivery contract](https://github.com/wornpage/cli/blob/master/docs/component-delivery.md) checks this declaration, package exports, packed files, and generated output on every push and pull request.
-<!-- /wornpage-delivery -->
-
-## Svelte
-
-```svelte
-<script>
-  import { Accordion, Collapsible } from '@wornpage/disclosure';
-  let sourceOpen = $state(false);
-</script>
-
-<Accordion label="Release notes" description="August 14">
-  <p>Responsive disclosure behavior shipped.</p>
-</Accordion>
-
-<Collapsible
-  summary="Source"
-  ariaLabel="Source for Button"
-  bind:open={sourceOpen}
->
-  <pre><code>&lt;Button&gt;Save&lt;/Button&gt;</code></pre>
-</Collapsible>
-```
-
-`Accordion` uses native `<details>` and `<summary>`. `Collapsible` uses one native button with `aria-expanded` and a hydration-stable `aria-controls` relationship. Use `ariaLabel` when multiple visible summaries are intentionally identical, such as repeated `Source` disclosures.
-
-Both controls own a 44 px trigger target, keyboard focus, narrow containment, hostile-label wrapping, theme tokens, and reduced-motion behavior. Accordion deliberately uses the browser's native open/close behavior rather than declaring a Svelte transition on an always-mounted body.
-
-## Browser bundle
-
-```html
-<script type="module" src="./dist/worn-disclosure.js"></script>
-
-<worn-accordion label="Release notes" description="August 14">
-  <p>Responsive disclosure behavior shipped.</p>
-</worn-accordion>
-
-<worn-collapsible summary="Source" aria-label="Source for Button">
-  <pre><code>&lt;Button&gt;Save&lt;/Button&gt;</code></pre>
-</worn-collapsible>
-```
-
-The bundle registers `<worn-accordion>` and `<worn-collapsible>`. Their `change` event bubbles with `detail.open`.
-
-## Props
-
-### Accordion
-
-- `label: string`
-- `description?: string`
-- `open?: boolean`
-- `panelId?: string`
-- `onchange?: (open: boolean) => void`
-
-### Collapsible
-
-- `summary: string`
-- `open?: boolean`
-- `ariaLabel?: string`
-- `panelId?: string`
-- `onchange?: (open: boolean) => void`
-
-## Theme tokens
-
-- `--worn-disclosure-focus` — shared Accordion and Collapsible focus outline; falls back through `--worn-focus`, `--worn-accent`, then `currentColor`
-- `--worn-bg`
-- `--worn-surface`
-- `--worn-border`
-- `--worn-text`
-- `--worn-text-secondary`
-- `--worn-text-muted`
-- `--worn-accent`
-- `--worn-hover-bg`
-- `--worn-radius-sm`
-- `--font-typewriter`
+Standalone maintenance ended on 2026-09-07. Existing source licenses continue to apply.
